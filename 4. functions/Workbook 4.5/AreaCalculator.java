@@ -124,6 +124,3 @@ public class AreaCalculator {
      *  4. print: ("Circle area: <circle area>")
      * 
      */
-
-
-}

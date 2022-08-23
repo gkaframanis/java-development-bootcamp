@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.sound.sampled.SourceDataLine;
-
 public class DiceJack {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

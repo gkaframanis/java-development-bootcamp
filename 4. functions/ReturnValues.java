@@ -1,5 +1,3 @@
-import javax.sound.midi.SysexMessage;
-
 public class ReturnValues {
     public static void main(String[] args) {
         double measure1 = measureRectangle(2.2, 4.3, "area");
