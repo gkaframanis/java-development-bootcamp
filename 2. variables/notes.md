@@ -3,7 +3,7 @@
 - Variables are written in lowerCamelCase.
 - Java is strongly typed and case sensitive.
 
-## int (small whole numbers | they a rande inside + and -2 billion)
+## int (small whole numbers | they a range inside + and -2 billion)
 
 To store numbers
 
@@ -18,9 +18,9 @@ Text + icon (the number blends into the text)
 It can store only one character. We use !!! ***single quotes*** !!!
 We can join String and char using the + sign.
 
-## long (can store much larger numbers than int)
+## long (can store much larger whole numbers than int)
 
-## double
+## double 
 
 To store decimal numbers. You can't store decimals to int or long,  
 but you can store int or long to double. Better to use double for   
