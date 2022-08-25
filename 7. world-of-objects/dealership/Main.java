@@ -34,5 +34,6 @@ public class Main {
                     dealership.sell(index);
                 }
         }
+        scanner.close();
     }
 }
