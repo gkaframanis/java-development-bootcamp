@@ -12,21 +12,42 @@ public class Main {
         System.out.println("\t             WELCOME TO JAVA DRINKS!            ");
         System.out.println("\t************************************************");
 
-        Item[][] items = new Item[][] {
-            { new Item("Pepsi", 1.99, -3) , new Item("Fresca", 1.49, 3), new Item("     ", 2.49, -2) },
-            { new Item("Fanta", 1.99, 2) , new Item("      ", 1.49, 2), new Item("A & W", 2.49, 3) },
-            { new Item("     ", 1.99, 2) , new Item("C-Cola", 1.49, 2), new Item("Berry", -2.49, 1) }
-        };   
-
+        Item[][] items = new Item[][] { 
+            { new Item("Pepsi", 1.99, 3) , new Item("Fresca", 1.49, 3), new Item("Brisk", 2.49, 2) }, 
+            { new Item("Fanta", 1.99, 2) , new Item("Barq's", 1.49, 2), new Item("A & W", 2.49, 3) }, 
+            { new Item("Crush", 1.99, 2) , new Item("C-Cola", 1.49, 2), new Item("Berry", 2.49, 1) }
+            };
+            
         Machine machine = new Machine(items);
 
         System.out.println(machine);
 
         while (true) {
+            if (machine.isEmpty()) {
+                System.out.println("Machine needs to be stocked, sorry...");
+                break;
+            }
             System.out.print("Pick a row: ");
-            int row = scan.nextInt();
+            // The hasNextInt() method of Java Scanner class is used to check if the next token in this scanner's input can be interpreted as an int value using the nextInt() method.
+            int row = scan.hasNextInt() ? scan.nextInt() : 404;
+            // If we return 404 we need to pick up what was the input.
+            scan.nextLine();
             System.out.print("Pick a spot in the row: ");
-            int spot = scan.nextInt();
+            int spot = scan.hasNextInt() ? scan.nextInt() : 404;
+            scan.nextLine();
+
+            if (row == 404 || spot == 404) {
+                System.out.println("INVALID INPUT.");
+                continue;
+            }
+            else if (row < 0 || row > machine.getLength() - 1 || spot < 0 || spot > machine.getRowLength() - 1) {
+                System.out.println("INVALID INDEX");
+                continue;
+            }
+            else if (machine.getItem(row, spot).getQuantity() == 0) {
+                System.out.println("EMPTY SLOT");
+                continue;
+            }
 
             machine.dispense(row, spot);
             System.out.println("\n" + machine);
